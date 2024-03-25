@@ -1,14 +1,15 @@
 import os
-from openai import AsyncOpenAI  # importing openai for API usage
-import chainlit as cl  # importing chainlit for our app
-from chainlit.prompt import Prompt, PromptMessage  # importing prompt tools
-from chainlit.playground.providers import ChatOpenAI  # importing ChatOpenAI tools
+from openai import AsyncOpenAI  
+import chainlit as cl  
+from chainlit.prompt import Prompt, PromptMessage  
+from chainlit.playground.providers import ChatOpenAI  
 from dotenv import load_dotenv
 
 load_dotenv()
 
 system_template = """You are a helpful assistant who always speaks in a pleasant tone!"""
-user_templere = """Think through your response step by step"""
+user_templere = """{input} 
+Think through your response step by step"""
 
 @cl.on_chat_start
 async def start_chat():
